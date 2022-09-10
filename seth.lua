@@ -1,11 +1,11 @@
--- SethHack v4 coded by seth
+-- SethHeeck v4 coded by seth
 -- leaked by some giraffe 
 -- credits to fr1kin for fixing this piece of shit i just uploaded
--- hacks don't deserve money
+-- heecks don't deserve money
 
 local SH = {};
 
-print("SethHack V4.3 Loaded!");
+print("SethHeeck V4.3 Loaded!");
 
 local fuck = function(...) return NULL end;
 
@@ -80,14 +80,14 @@ local SH = {
 local menu = { aimtab = {} };
 
 SH.cvars = {
-	{"sh_enabled", 1}, -- Hack should load
+	{"sh_enabled", 1}, -- Heeck should load
 	{"sh_panicmode", 0}, -- Panicmode (hooks don't run)
 	{"sh_logging_console", 0}, -- Log functions
 	{"sh_logging_file", 1}, -- Log functions
 	{"sh_blockrcc", 0}, -- Block RunConsoleCommand/:ConCommand()
-	{"sh_wallhack", 1}, -- Self explanatory
-	{"sh_wallhack_dist", 4092}, -- Max distance to see players
-	{"sh_wireframe", 1}, -- Wireframe wallhack
+	{"sh_wallhrrck", 1}, -- Self explanatory
+	{"sh_wallheeck_dist", 4092}, -- Max distance to see players
+	{"sh_wireframe", 1}, -- Wireframe wallheeck
 	{"sh_solids", 0}, -- Solid chams
 	{"sh_esp", 1}, -- Self explanatory
 	{"sh_esp_showdist", 0}, -- Show player's distance on ESP
@@ -102,7 +102,7 @@ SH.cvars = {
 	{"sh_lasersights", 1}, -- Lser sight traces
 	{"sh_showadmins", 1}, -- Show admin list
 	{"sh_showdruggy", 1}, -- Show PERP drug info
-	{"sh_speedhack_speed", 2.5}, -- Speed of the speedhack
+	{"sh_speedheeck_speed", 2.5}, -- Speed of the speedheeck
 	{"sh_targettraitors", 0}, -- Only target traitors
 	{"sh_ignoretraitors", 0}, -- Ignore traitors if you're a traitor
 	{"sh_ignoreadmins", 0}, -- Ignore admins
@@ -233,7 +233,7 @@ local q = SH.data.GetOptionTab("ESPEnts");
 if (q) then
 	for k, v in g.pairs(q) do
 		SH.custe[k] = true;
-		g.print("[SethHack] Loaded custom ent:", k);
+		g.print("[SethHeeck] Loaded custom ent:", k);
 	end
 end
 
@@ -241,7 +241,7 @@ q = SH.data.GetOptionTab("Binds");
 if (q) then
 	for k, v in g.pairs(q) do
 		SH.binds[k] = v;
-		g.print("[SethHack] Loaded Bind: '"..k.."' = '"..v.."'");
+		g.print("[SethHeeck] Loaded Bind: '"..k.."' = '"..v.."'");
 	end
 end
 
@@ -257,7 +257,7 @@ if (q) then
 			end
 		end
 		SH.configs[k] = t;
-		g.print("[SethHack] Loaded Config:", k);
+		g.print("[SethHeeck] Loaded Config:", k);
 	end
 else
 	local ge = "";
@@ -270,7 +270,7 @@ else
 	SH.data.SetOptionTab("Configs", t);
 	
 	SH.configs["Default"] = tCopy(SH.cvars);
-	g.print("[SethHack] Created initial Default config.");
+	g.print("[SethHeeck] Created initial Default config.");
 end
 
 --[[function SH:RegisterHook(name, func)
@@ -436,7 +436,7 @@ function SH.GetCVStr(cvar)
 end
 
 SH:RegisterCommand("help", function()
-	SH.sprint("Type 'sh_commands' for a list of SethHack commands.");
+	SH.sprint("Type 'sh_commands' for a list of SethHeeck commands.");
 	SH.sprint("Type 'bind KEY COMMAND' to bind a key. Type 'unbind KEY' to unbind it.");
 end);
 
@@ -506,7 +506,7 @@ hook.Add("Tick", "updateVars", function()
 				g.table.insert(SH.spect, v);
 				if(SH.GetCVNum("sh_showspectators") == 1) then
 					g.chat.AddText(g.Color(100, 100, 100), 
-						"[SethHack] ", g.Color(255, 10, 10), v:Nick() .. " is now spectating you!"
+						"[SethHeeck] ", g.Color(255, 10, 10), v:Nick() .. " is now spectating you!"
 					);
 					g.surface.PlaySound("buttons/blip1.wav");
 				end
@@ -519,7 +519,7 @@ hook.Add("Tick", "updateVars", function()
 			g.table.remove(SH.spect, k);
 			if(SH.GetCVNum("sh_showspectators") == 1) then
 				g.chat.AddText(g.Color(100, 100, 100), 
-					"[SethHack] ", g.Color(255, 10, 10), v:Nick() .. " is no longer spectating you!"
+					"[SethHeeck] ", g.Color(255, 10, 10), v:Nick() .. " is no longer spectating you!"
 				);
 			end
 		end
@@ -533,7 +533,7 @@ hook.Add("Tick", "updateVars", function()
 						if(y.CanBuy and g.table.HasValue(y.CanBuy, ROLE_TRAITOR)) then
 							g.table.insert(SH.traitors, v);
 							g.chat.AddText(g.Color(100, 100, 100), 
-								"[SethHack] ", g.Color(255, 10, 10), v:Nick() .. " has traitor weapon " .. y:GetClass() .. "!"
+								"[SethHeeck] ", g.Color(255, 10, 10), v:Nick() .. " has traitor weapon " .. y:GetClass() .. "!"
 							);
 						end
 					end
@@ -546,7 +546,7 @@ hook.Add("Tick", "updateVars", function()
 		for k, v in g.ipairs(g_players) do
 			if(v:IsAdmin() and not g.table.HasValue(SH.admins, v)) then
 				g.table.insert(SH.admins, v);
-				g.chat.AddText(g.Color(100, 100, 100), "[SethHack] ", g.Color(0, 255, 255), "Admin " .. v:Nick() .. " has joined!");
+				g.chat.AddText(g.Color(100, 100, 100), "[SethHeeck] ", g.Color(0, 255, 255), "Admin " .. v:Nick() .. " has joined!");
 				g.surface.PlaySound("buttons/blip1.wav");
 			end
 		end
@@ -571,12 +571,12 @@ end);
 
 function SH.BlowC4()
 	if(not _G.KARMA) then
-		g.chat.AddText(g.Color(100, 100, 100), "[SethHack] ", g.Color(0, 255, 255), "Gamemode does not appear to be TTT!");
+		g.chat.AddText(g.Color(100, 100, 100), "[SethHeeck] ", g.Color(0, 255, 255), "Gamemode does not appear to be TTT!");
 		return;
 	end
 	
 	if(_R.Player.IsTraitor and me:IsTraitor()) then
-		g.chat.AddText(g.Color(100, 100, 100), "[SethHack] ", g.Color(0, 255, 255), "Cannot do this as traitor!");
+		g.chat.AddText(g.Color(100, 100, 100), "[SethHeeck] ", g.Color(0, 255, 255), "Cannot do this as traitor!");
 		return;
 	end
 	
@@ -584,7 +584,7 @@ function SH.BlowC4()
 		g.RunConsoleCommand("ttt_c4_disarm", v:EntIndex(), g.math.random(1000, 5000));
 	end
 	
-	g.chat.AddText(g.Color(100, 100, 100), "[SethHack] ", g.Color(0, 255, 255), "Blown all C4!");
+	g.chat.AddText(g.Color(100, 100, 100), "[SethHeeck] ", g.Color(0, 255, 255), "Blown all C4!");
 end
 
 SH:RegisterCommand("sh_blowc4", SH.BlowC4);
@@ -605,8 +605,8 @@ SH.LZR2Mat = g.Material("Sprites/light_glow02_add_noz");
 
 g.SetMaterialOverride = g.SetMaterialOverride or g.render.MaterialOverride;
 
-function SH.Wallhack()
-	if(SH.GetCVNum("sh_wallhack") ~= 1) then return; end
+function SH.Wallheeck()
+	if(SH.GetCVNum("sh_wallheeck") ~= 1) then return; end
 	
 	g.cam.Start3D(g.EyePos(), g.EyeAngles())
 		for k, v in g.ipairs(g_ents) do
@@ -617,7 +617,7 @@ function SH.Wallhack()
 				
 				if(valid) then
 					local dst = v:GetPos():Distance(me:GetPos());
-					if(dst < SH.GetCVNum("sh_wallhack_dist")) then
+					if(dst < SH.GetCVNum("sh_wallheeck_dist")) then
 						if(SH.GetCVNum("sh_wireframe") == 1 or SH.GetCVNum("sh_solids") == 1) then
 							local col;
 							if(v:IsPlayer()) then
@@ -694,7 +694,7 @@ function SH.LaserEyes()
 end
 
 function SH.RSSE()
-	SH.Wallhack();
+	SH.Wallheeck();
 	SH.LaserEyes();
 end
 
@@ -1422,7 +1422,7 @@ function SH.ConToggle()
 	vConFrame = vgui.Create("DFrame");
 	vConFrame:SetSize(750, 500);
 	vConFrame:SetPos(50, 50);
-	vConFrame:SetTitle("SethHack Console");
+	vConFrame:SetTitle("Sethheeck Console");
 	vConFrame:ShowCloseButton(true);
 	vConFrame:MakePopup();
 
@@ -1714,16 +1714,16 @@ function SH.Menu()
 		SH.GetCVNum("sh_color_menu_b"),
 		SH.GetCVNum("sh_color_menu_a"))]] g.Color(0,0,0,225));
 		
-		g.draw.SimpleText("SethHack", "shmenufont", 215, 10, g.Color(210, 210, 210, 235), TEXT_ALIGN_CENTER);
+		g.draw.SimpleText("SethHeeck", "shmenufont", 215, 10, g.Color(210, 210, 210, 235), TEXT_ALIGN_CENTER);
 		g.draw.SimpleText("V4", "shmenufont", 365, 10, g.Color(0, 192, 255, 235), TEXT_ALIGN_CENTER);
-		g.draw.SimpleText("sethhack.net", "DermaDefault", 355, 60, g.Color(210, 210, 210, 235), TEXT_ALIGN_CENTER);
+		g.draw.SimpleText("sethheeck.net", "DermaDefault", 355, 60, g.Color(210, 210, 210, 235), TEXT_ALIGN_CENTER);
 	end
 	
 	menu.aimbutton, menu.aimpanel = SH.CreateButton("Aimbot", 75, 20, 15, 85, menu.frame);
 	menu.friendsbutton, menu.friendspanel = SH.CreateButton("Friends", 75, 20, 15, 125, menu.frame);
 	menu.teamsbutton, menu.teamspanel = SH.CreateButton("Teams", 75, 20, 15, 165, menu.frame);
 	menu.custebutton, menu.custepanel = SH.CreateButton("Custom Ents", 75, 20, 15, 205, menu.frame);
-	menu.espbutton, menu.esppanel = SH.CreateButton("ESP/Wallhack", 75, 20, 15, 245, menu.frame);
+	menu.espbutton, menu.esppanel = SH.CreateButton("ESP/Wallheeck", 75, 20, 15, 245, menu.frame);
 	menu.miscbutton, menu.miscpanel = SH.CreateButton("Misc", 75, 20, 15, 285, menu.frame);
 	menu.configbutton, menu.configpanel = SH.CreateButton("Configurations", 75, 20, 15, 325, menu.frame);
 	menu.iplogbutton, menu.iplogpanel = SH.CreateButton("IP Logs (x)", 75, 20, 15, 365, menu.frame);
@@ -1765,7 +1765,7 @@ function SH.Menu()
 	SH.CreateOption("Label", menu.custepanel, nil, "List", 250, 0);
 	
 	SH.CreateOption("Checkbox", menu.esppanel, "Show player's name, health, weapon, and more above their head", "ESP", "sh_esp", 0, 0);
-	SH.CreateOption("Checkbox", menu.esppanel, "Allows you to see players and NPCs through walls and other objects", "Wallhack", "sh_wallhack", 0, 20);
+	SH.CreateOption("Checkbox", menu.esppanel, "Allows you to see players and NPCs through walls and other objects", "Wallheeck", "sh_wallheeck", 0, 20);
 	SH.CreateOption("Checkbox", menu.esppanel, "Turns players, props, weapons, and more into wireframe", "Wireframe Chams", "sh_wireframe", 0, 40);
 	SH.CreateOption("Checkbox", menu.esppanel, "Turns players, props, weapons, and more into solid chams", "Solid Chams", "sh_solids", 0, 60);
 	SH.CreateOption("Checkbox", menu.esppanel, "Shows a list of admins and superadmins in the top right of the screen", "Show Admins", "sh_showadmins", 0, 80);
@@ -1777,8 +1777,8 @@ function SH.Menu()
 	
 	SH.CreateOption("Slider", menu.esppanel, "The maximum distance that players can be for the ESP to show them",
 	"Max ESP Dist", "sh_esp_dist", 0, 1, 25000, 150, 180, 245);
-	SH.CreateOption("Slider", menu.esppanel, "The maximum distance that players can be for the Wallhack to show them", 
-	"Max Wallhack Dist", "sh_wallhack_dist", 0, 1, 25000, 150, 180, 285);
+	SH.CreateOption("Slider", menu.esppanel, "The maximum distance that players can be for the Wallheeck to show them", 
+	"Max Wallheeck Dist", "sh_wallheeck_dist", 0, 1, 25000, 150, 180, 285);
 	
 	SH.CreateOption("Checkbox", menu.miscpanel, "Automatically reloads your weapon when you have no ammo", "Autoreload", "sh_autoreload", 0, 0);
 	SH.CreateOption("Checkbox", menu.miscpanel, "Blocks RunConsoleCommand and :ConCommand() from being used", "Block RunConsoleCommand", "sh_blockrcc", 0, 20);
@@ -1786,7 +1786,7 @@ function SH.Menu()
 	SH.CreateOption("Checkbox", menu.miscpanel, "Logs functions such as RunConsoleCommand and file.Exists", "Console Logging", "sh_logging_console", 0, 60);
 	SH.CreateOption("Checkbox", menu.miscpanel, "Disables custom view", "Disable CalcView", "sh_disablecalcview", 0, 80);
 	SH.CreateOption("Checkbox", menu.miscpanel, "Bypass ULX's gag (voicemute) system", "Bypass ULX Gag", "sh_ulxungag", 0, 100);
-	SH.CreateOption("Checkbox", menu.miscpanel, "Turn off every single SethHack feature", "Panic Mode", "sh_panicmode", 0, 120);
+	SH.CreateOption("Checkbox", menu.miscpanel, "Turn off every single SethHeeck feature", "Panic Mode", "sh_panicmode", 0, 120);
 	SH.CreateOption("Checkbox", menu.miscpanel, "Disable recoil for weapons. Needs a respawn to disable.", "No-Recoil", "sh_norecoil", 0, 140);
 	SH.CreateOption("Checkbox", menu.miscpanel, "Randomly change your name to that of other players.", "Name-Changer", "sh_namechange", 0, 160);
 	SH.CreateOption("Checkbox", menu.miscpanel, "Jump the moment you touch the ground if you are holding space", "Bunnyhop", "sh_bhop", 0, 180);
@@ -1799,7 +1799,7 @@ function SH.Menu()
 	SH.CreateOption("Slider", menu.miscpanel,
 	"The distance that the thirdperson camera is from yourself",
 	"Thirdperson Distance", "sh_thirdperson_dist", 0, 0, 200, 150, 180, 245);
-	SH.CreateOption("Slider", menu.miscpanel, "The speed of the speedhack", "Speedhack Speed", "sh_speedhack_speed", 2, 1, 25, 150, 180, 285);
+	SH.CreateOption("Slider", menu.miscpanel, "The speed of the speedheeck", "Speedheeck Speed", "sh_speedheeck_speed", 2, 1, 25, 150, 180, 285);
 	
 	SH.CreateButton("Blow C4s (TTT)", 85, 20, 0, 290, menu.miscpanel, SH.BlowC4);
 	
@@ -1807,7 +1807,7 @@ function SH.Menu()
 	SH.CreateOption("Checkbox", menu.teamspanel, "Makes the teams list an enemy list", "Teams List is Enemy List", "sh_teamisenemy", 95, 255);
 	
 	SH.CreateOption("Label", menu.configpanel, nil, [[
-		Custom configurations allow you to save all SethHack settings
+		Custom configurations allow you to save all SethHeeck settings
 		under a specified name, and restore the exact same settings
 		at a later time!]], 5, 260);
 		
@@ -2207,7 +2207,7 @@ function SH.UpdateMenu()
 		umenu:SetSize(500, 550);
 		umenu:SetPos(10, 10);
 		umenu:ShowCloseButton(false);
-		umenu:SetTitle("SethHack Credits");
+		umenu:SetTitle("SethHeeck Credits");
 		umenu:MakePopup();
 
 		local ulabel = vgui.Create("DTextEntry", umenu);
@@ -2226,7 +2226,7 @@ function SH.UpdateMenu()
 		end
 
 		ulabel:SetText([[
-            Welcome to SethHack v4! A Garry's Mod Aimbot.
+            Welcome to SethHeeck v4! A Garry's Mod Aimbot.
             Rebuilt and Converted by: The ICEMANE;
             Coded by: Seth
 		]]);
