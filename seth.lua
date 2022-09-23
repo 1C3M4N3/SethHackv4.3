@@ -1,5 +1,5 @@
--- SethHack v4 coded by seth
--- leaked by some giraffe 
+-- SethHack v4 coded by seth, influenced by meth for your cheating pleasure, leaked by some giraffe
+-- leaked by some giraffe...again
 -- credits to fr1kin for fixing this piece of shit i just uploaded
 -- hacks don't deserve money
 
